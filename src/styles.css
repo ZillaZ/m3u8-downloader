@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+    color: #e2e8f0;
+}
+
+.main-wrapper {
+    background-color: #1e293b;
+    padding: 2rem;
+    width: 50%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #334155;
+}
+
+.content-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #60a5fa;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    transition: all 0.2s;
+}
+
+input[type="text"]::placeholder {
+    color: #64748b;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+#file-input {
+    display: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #3b82f6;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #2563eb;
+}
+
+.btn:active {
+    background-color: #1d4ed8;
+    transform: translateY(1px);
+}
+
+/* ... (previous CSS remains the same until .status-container) ... */
+
+.status-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #0f172a;
+    border-radius: 0.75rem;
+    border: 1px solid #334155;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.progress {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #3b82f6;
+    border-radius: 1px;
+}
+
+.status {
+    font-size: 1rem;
+    color: #94a3b8;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.status::before {
+    content: '';
+    display: inline-block;
+    min-width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    animation: pulse 2s infinite;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Status indicator colors */
+.status[data-status="error"]::before {
+    background-color: #ef4444;
+}
+
+.status[data-status="warning"]::before {
+    background-color: #f59e0b;
+}
+
+.status[data-status="success"]::before {
+    background-color: #10b981;
+}
+
+.status[data-status="waiting"]::before {
+    background-color: #60a5fa;
+}
+
+/* Add styles for error messages specifically */
+.status[data-status="error"] {
+    color: #fecaca;
+    background-color: rgba(239, 68, 68, 0.1);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.options-wrapper {
+    background-color: #1e293b;
+    padding: 2rem;
+    width: 50%;
+    min-height: 80vh;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #334155;
+}
+
+.options-content {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.options-wrapper h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #60a5fa;
+}
+
+.modes-wrapper {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.modes-wrapper button {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #334155;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modes-wrapper button:hover {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+
+.active {
+    background-color: #3b82f6 !important;
+    color: white !important;
+    border-color: #60a5fa !important;
+}
+
+.single-mode-editor {
+    width: 100%;
+}
+
+.header-value {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+.raw-mode-editor {
+    width: 100%;
+}
+
+.raw-mode-editor textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    resize: vertical;
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+.raw-mode-editor textarea::placeholder {
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .main-wrapper,
+    .options-wrapper {
+        width: 100%;
+        min-height: auto;
+    }
+    .status-container {
+        padding: 1rem;
+    }
+
+    .progress {
+        font-size: 2rem;
+    }
+
+    .status {
+        font-size: 0.875rem;
+    }
+
+}

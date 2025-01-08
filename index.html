@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>M3U8 Downloader</title>
+        <meta name="description" content="Easy to use M3U8 file downloader">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src/styles.css">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        <script src="src/script.js"></script>
+    </head>
+    <body onLoad="page_load()">
+        <div class="main-wrapper">
+            <div class="content-container">
+                <h1>M3U8 Downloader</h1>
+                <p class="description">Download your m3u8 files with ease. Just pick the file, and we handle the rest.</p>
+                <input type="file" accept=".m3u8" id="file-input" onChange="read_file()"/>
+                <input id="prefix" type="text" placeholder="Insert prefix here (if there's any)" onInput="update_prefix(event)"/>
+                <button class="btn" onClick="pick_file()">
+                    <span class="btn-text">Pick a File</span>
+                </button>
+               <div class="status-container">
+                    <p id="progress" class="progress">0%</p>
+                    <p id="status" class="status" data-status="waiting">Status: Waiting for download...</p>
+               </div>
+                <a id="download-anchor" style="display: none;"></a>
+            </div>
+        </div>
+        <div class="options-wrapper">
+            <div class="options-content">
+                <h3>Headers</h3>
+                <div class="modes-wrapper">
+                    <button id="single-button" onClick="set_mode('single')">Single Mode</button>
+                    <button id="raw-button" onClick="set_mode('raw')">Raw Mode</button>
+                </div>
+                <div class="single-mode-editor">
+                    <input id="main-input" type="text" class="header-value" placeholder="Accept: */*" onKeyDown="header_input_event(event)">
+                </div>
+                <div class="raw-mode-editor" style="display: none;">
+                    <textarea placeholder="Accept: */*"></textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
